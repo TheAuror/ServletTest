@@ -23,18 +23,14 @@ public class BinaryTreeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
-        
-         // Retrieves <input type="text" name="description">
         Part filePart = request.getPart("file"); // Retrieves <input type="file" name="file">
-        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
         InputStream fileContent = filePart.getInputStream();
         PrintWriter out = response.getWriter();
         String asd = "";
         while(fileContent.available()>0)
         {
-            asd+=(char)fileContent.read();
-            asd+=" ";
+            out.print((char)fileContent.read());
         }
-        out.print(asd);
+        
     }
 }
