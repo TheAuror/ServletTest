@@ -13,7 +13,15 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    
+
+    <distributionManagement>
+            <repository>
+                <id>my-repo1</id>
+                <name>your custom repo</name>
+                <url>https://github.com/TheAuror/ServletTest.git</url>
+            </repository>
+    </distributionManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.commons</groupId>
