@@ -126,13 +126,13 @@ public class BinaryTree {
     public void printTree(Node current, PrintWriter output)
     {
         if(current == null) return;
-        printTree(current.left, output);
+        printTree(current.right, output);
         for(int i=0; i<current.depth; i++)
         {
             output.print("---");
         }
         output.printf(current.value+"("+current.depth+")%n");
-        printTree(current.right, output);
+        printTree(current.left, output);
     }
     
     public void calcAvgDepth(Node current)
