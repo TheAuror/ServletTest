@@ -41,10 +41,10 @@ public class BinaryTreeServlet extends HttpServlet {
     {
         Part filePart = request.getPart("file");
         InputStream fileContent = filePart.getInputStream();
-        PrintWriter out = response.getWriter();
-        BinaryTree tree = new BinaryTree(fileContent);
-        tree.read();
-        tree.print(out);
-        out.close();
+        try (PrintWriter out = response.getWriter()) {
+            BinaryTree tree = new BinaryTree(fileContent);
+            tree.read();
+            tree.print(out);
+        }
     }
 }
